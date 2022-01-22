@@ -25,7 +25,11 @@
                 <el-table-column label="姓名" prop="username" ></el-table-column>
                 <el-table-column label="邮箱" prop="email"></el-table-column>
                 <el-table-column label="电话" prop="phone" ></el-table-column>
-                <el-table-column label="角色" prop="isAdmin" ></el-table-column>
+                <el-table-column label="角色">
+                    <template slot-scope="scope">
+                        {{scope.row.isAdmin?"管理员":"用户"}}
+                    </template>
+                </el-table-column>
                 <el-table-column label="状态">
                     <template slot-scope="scope">
                         <el-switch v-model="scope.row.mg_state" @change="stateChange(scope.row)"></el-switch>
